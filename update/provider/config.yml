@@ -28,8 +28,9 @@ proxy-groups:
    
   - name: Ping
     type: url-test
-    url: 'http://www.gstatic.com/generate_204'
-    interval: 100
+    url: https://api.telegram.org
+    tolerance: 100
+    interval: 3600
     proxies:
 
 rule-providers:
