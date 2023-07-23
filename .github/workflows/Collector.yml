@@ -20,13 +20,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3.6.0
+      - uses: actions/setup-node@v3.7.0
         with:
           node-version: "18.x"
       - uses: bahmutov/npm-install@v1.6.0
         with:
           working-directory: ./utils/localserver
-      - uses: actions/setup-python@v4
+      - uses: actions/setup-python@v4.7.0
         with:
           python-version: "3.x"
           cache: "pip"
@@ -88,6 +88,7 @@ jobs:
           git add ./sub/sub_merge.txt
           git add ./sub/sub_merge_base64.txt
           git add LogInfo.txt
+          git add ./sub/splitted/*
           git commit -m "✔️ $(date '+%Y-%m-%d %H:%M:%S') Tested"
       - name: Push Change
         uses: ad-m/github-push-action@master
