@@ -88,7 +88,6 @@ jobs:
           git add ./sub/sub_merge.txt
           git add ./sub/sub_merge_base64.txt
           git add LogInfo.txt
-          git add ./sub/splitted/*
           git commit -m "✔️ $(date '+%Y-%m-%d %H:%M:%S') Tested"
       - name: Push Change
         uses: ad-m/github-push-action@master
@@ -109,7 +108,6 @@ jobs:
           git pull origin master
           git add Eternity.yml
           git add Eternity
-          git add README.md
           git add ./update/*
           git add LogInfo.txt
           git commit -m "✔️ $(date '+%Y-%m-%d %H:%M:%S') Filtered"
