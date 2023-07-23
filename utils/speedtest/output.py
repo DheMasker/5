@@ -3,7 +3,7 @@ import base64
 import os
 import time
 
-out_json = './out.json'
+out_json = './output.json'
 
 sub_all_base64 = "./sub/sub_merge_base64.txt"
 sub_all = "./sub/sub_merge.txt"
@@ -14,6 +14,9 @@ Eternity_Base = "./EternityBase"
 
 def read_json(file):  # 将 out.json 内容读取为列表
     while os.path.isfile(file) == False:
+        # log
+        #file_list = os.listdir("./")
+        #print(file_list)
         print('Awaiting speedtest complete')
         time.sleep(30)
     with open(file, 'r', encoding='utf-8') as f:
@@ -26,6 +29,10 @@ def read_json(file):  # 将 out.json 内容读取为列表
 def output(list, num):
     # sort base their avg speed rather than max speed which is default option
     list = sorted(list, key=lambda x: x['avg_speed'], reverse=True)
+
+    # log
+    print(list[0])
+    print(list[-1])
 
     def arred(x, n): return x*(10**n)//1/(10**n)
     print(str(list[0]))
@@ -50,6 +57,7 @@ def output(list, num):
         '\n'.join(output_list).encode('utf-8')).decode('ascii')
     content_base64_part = base64.b64encode(
         '\n'.join(output_list[0:num]).encode('utf-8')).decode('ascii')
+
 
     with open(sub_all_base64, 'w+', encoding='utf-8') as f:
         f.write(content_base64)
